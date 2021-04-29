@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="0cf3ab77-2be1-484a-8400-1b77be842caf" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
@@ -129,13 +132,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/app/Http/Controllers/Api" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources/views/admin/items" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/items" />
+      <recent name="$PROJECT_DIR$/resources/views/admin" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/subcategories" />
+      <recent name="$PROJECT_DIR$/resources/views/admin/categories" />
+      <recent name="$PROJECT_DIR$/resources/views/layouts" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/Http/Controllers/Api" />
@@ -155,7 +162,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1619703140872</updated>
-      <workItem from="1619703141918" duration="6642000" />
+      <workItem from="1619703141918" duration="18073000" />
     </task>
     <servers />
   </component>
@@ -171,9 +178,13 @@
       <screen x="0" y="25" width="1440" height="805" />
     </state>
     <state x="520" y="201" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.25.1440.805@0.25.1440.805" timestamp="1619703400760" />
-    <state x="385" y="154" width="670" height="676" key="search.everywhere.popup" timestamp="1619720062523">
+    <state x="458" y="186" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1619737663143">
       <screen x="0" y="25" width="1440" height="805" />
     </state>
-    <state x="385" y="154" width="670" height="676" key="search.everywhere.popup/0.25.1440.805@0.25.1440.805" timestamp="1619720062523" />
+    <state x="458" y="186" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.25.1440.805@0.25.1440.805" timestamp="1619737663143" />
+    <state x="385" y="154" width="670" height="676" key="search.everywhere.popup" timestamp="1619737766824">
+      <screen x="0" y="25" width="1440" height="805" />
+    </state>
+    <state x="385" y="154" width="670" height="676" key="search.everywhere.popup/0.25.1440.805@0.25.1440.805" timestamp="1619737766824" />
   </component>
 </project>

@@ -12,7 +12,7 @@ class CategoryController extends Controller
 
     public function index()
     {
-        $categories = Category::with('sub_categories.items')->get();
+        $categories = Category::with('sub_categories.items.images')->get();
         return $categories;
     }
 

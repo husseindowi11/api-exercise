@@ -2,40 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreSubCategoryRequest;
+use App\Http\Requests\UpdateSubCategoryRequest;
+use App\Models\Category;
 use App\Models\SubCategory;
 use Illuminate\Http\Request;
 
 class SubCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        $subcategories = SubCategory::withTrashed()->get();
+        $subcategories->load('category');
+        return view('admin.subcategories.index', compact('subcategories'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $categories = Category::all();
+        return view('admin.subcategories.create', compact('categories'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(StoreSubCategoryRequest $request)
     {
-        //
+        SubCategory::create($request->validated());
+        return redirect()->route('admin.subcategories.index');
     }
 
     /**
@@ -49,37 +40,29 @@ class SubCategoryController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SubCategory  $subCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SubCategory $subCategory)
+    public function edit(SubCategory $subcategory)
     {
-        //
+        $categories = Category::all();
+        return view('admin.subcategories.edit', compact('subcategory','categories'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SubCategory  $subCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SubCategory $subCategory)
+    public function update(UpdateSubCategoryRequest $request, SubCategory $subcategory)
     {
-        //
+        $subcategory->update($request->validated());
+        return redirect()->route('admin.subcategories.index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SubCategory  $subCategory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SubCategory $subCategory)
+    public function destroy(SubCategory $subcategory)
     {
-        //
+        $subcategory->delete();
+        return redirect()->route('admin.subcategories.index');
+    }
+
+    public function restore($id)
+    {
+        $subcategory = SubCategory::withTrashed()->where('id', $id)->get()->first();
+        $subcategory->deleted_at = null;
+        $subcategory->save();
+        return redirect()->route('admin.subcategories.index');
     }
 }

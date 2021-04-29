@@ -13,7 +13,7 @@ class ItemController extends Controller
 
     public function index()
     {
-        $items = Item::with('sub_category.category')->get();
+        $items = Item::with('sub_category.category','images')->get();
         return $items;
     }
 

@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\SubCategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware(['auth'])->group(function(){
+    Route::prefix('admin')->group(function () {
+        Route::name('admin.')->group(function () {
+            Route::post('/category/restore/{id}', [CategoryController::class, 'restore'])->name('categories.restore');
+            Route::post('/subcategory/restore/{id}', [SubCategoryController::class, 'restore'])->name('subcategories.restore');
+            Route::post('/item/restore/{id}', [\App\Http\Controllers\ItemController::class, 'restore'])->name('items.restore');
+            Route::resource('items', \App\Http\Controllers\ItemController::class);
+            Route::resource('categories', \App\Http\Controllers\CategoryController::class);
+            Route::resource('item-image', \App\Http\Controllers\ItemImageController::class);
+            Route::resource('subcategories', \App\Http\Controllers\SubCategoryController::class);
+
+        });
+    });
+});
+
